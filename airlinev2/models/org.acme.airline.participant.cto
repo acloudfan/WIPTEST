@@ -1,0 +1,38 @@
+
+
+namespace org.acme.airline.participant 
+
+abstract participant ACMEParticipant identified by participantKey {
+  o String          participantKey
+  o String          orgName   optional
+  o Contact         contact
+}
+
+participant ACMEPersonal extends ACMEParticipant {
+  o String  department
+}
+
+/** 
+* Travel Agency Type - Flat discount negotiated outside the chain
+*/
+participant B2BTravelPartner extends ACMEParticipant{
+   o  Double    discount
+}
+
+
+/** Government Agency Type */
+participant GovernmentParticipant extends ACMEParticipant{
+   o String         agencyName
+}
+
+
+
+
+concept Contact {
+  o String fName
+  o String lname
+  o String email
+}
+
+/**
+ */

@@ -1,0 +1,38 @@
+namespace   org.acme.airline.seat
+
+abstract asset AirlineSeat identified by seatId {
+    // Row##-Alpha
+    // 12-A 
+
+    o String     seatId
+
+    // A seat equipment type can be one of these types
+    o SeatType   seatType default="BASIC"
+ }
+
+ asset PassengerSeat extends AirlineSeat {
+   // Additional fields applicable to PassengerSeat
+
+   // A passenger seat has a class
+    o   category  seatClass default="ECONOMY"
+ }
+
+  // Seat can have a class
+ enum category {
+    o BUSINESS
+    o FIRST
+    o ECONOMY
+ }
+
+ asset CrewSeat extends AirlineSeat {
+   // Additional fields applicable to CrewSeat
+ }
+
+ // Seat can have a class
+ 
+enum SeatType {
+  o LUXURY
+  o LEATHER
+  o BASIC
+  o CREW
+}

@@ -1,0 +1,52 @@
+
+namespace org.acme.airline.aircraft
+
+asset Aircraft identified by aircraftId {
+  o   String      aircraftId
+  o   String      aircraftType
+  o   Ownership   ownership
+  // Seat count in the aircraft
+  o   Integer     seatCount
+  o   Integer     crewSeatCount
+  // Each aircraft holds certain number of seats for each class
+  o   Integer     firstClassSeats
+  o   Integer     businessClassSeats
+  o   Integer     economyClassSeats
+}
+
+enum Ownership {
+  o   LEASED
+  o   OWNED
+}
+
+/*** Aircrafts ****
+
+{
+  "$class": "org.acme.airline.aircraft.Aircraft",
+  "aircraftId": "CRAFT001",
+  "aircraftType": "Boeing A320",
+  "ownership": "OWNED",
+  "seatCount": 150,
+  "crewSeatCount": 5
+}
+
+
+{
+  "$class": "org.acme.airline.aircraft.Aircraft",
+  "aircraftId": "CRAFT002",
+  "aircraftType": "Boeing B737",
+  "ownership": "OWNED",
+  "seatCount": 137,
+  "crewSeatCount": 4
+}
+
+{
+  "$class": "org.acme.airline.aircraft.Aircraft",
+  "aircraftId": "CRAFT003",
+  "aircraftType": "Boeing 777",
+  "ownership": "LEASED",
+  "seatCount": 350,
+  "crewSeatCount": 8
+}
+
+ */

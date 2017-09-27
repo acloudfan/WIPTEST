@@ -1,0 +1,65 @@
+namespace   org.acme.airline.flight
+
+
+import      org.acme.airline.seat.PassengerSeat
+import      org.acme.airline.seat.CrewSeat
+import      org.acme.airline.aircraft.Aircraft
+
+asset Flight identified by flightNumber {
+  o   String            flightNumber
+  --> Aircraft          aircraft    optional
+  o   DateTime          schedule
+  o   PassengerSeat[]   passengerSeats
+  o   CrewSeat[]        crewSeats
+  o   Route             route
+}
+
+concept Route {
+  o   String  origin
+  o   String  destination
+  o   String  comments  optional
+}
+
+/**
+ * Creates a flight as an asset
+ */
+transaction CreateFlight  {
+  o   String      flightNumber
+  o   DateTime    schedule
+  o   Route       route
+}
+
+/**
+ * Add the Aircraft and the seats
+ */
+ transaction AssignAircraftSeats {
+   --> Aircraft   aircraft
+ }
+
+/******** Flight details *****
+{
+  "$class": "org.acme.airline.flight.Flight",
+  "flightNumber": "FLIGHT101",
+
+  "aircraft": "org.acme.airline.aircraft.Aircraft#002",
+
+  "schedule": "2018-01-31T19:20:00-05:00",
+  "passengerSeats": [
+    {"seatId": "1A", "seatType": "LUXURY", "seatClass": "BUSINESS"},
+    {"seatId": "1B", "seatType": "LUXURY", "seatClass": "BUSINESS"},
+    {"seatId": "6A", "seatType": "BASIC",  "seatClass": "ECONOMY"}
+  ],
+
+  "crewSeats": [
+    {"seatId": "CREW-1", "seatType": "CREW"}
+  ],
+
+  "route": {
+    "origin": "EWR",
+    "destination": "SFO"
+  }
+}
+
+
+
+ */
