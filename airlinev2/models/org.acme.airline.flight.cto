@@ -1,6 +1,5 @@
 namespace   org.acme.airline.flight
 
-
 import      org.acme.airline.seat.PassengerSeat
 import      org.acme.airline.seat.CrewSeat
 import      org.acme.airline.aircraft.Aircraft

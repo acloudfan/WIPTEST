@@ -1,0 +1,24 @@
+/**
+ * Contains the ACL for ACME Airlines
+ **/
+
+rule SystemACL {
+  description: "System ACL to permit all access"
+  participant: "org.hyperledger.composer.system.Participant"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}
+
+/**
+ * Rules for acme Airlines
+ **/
+rule FlightManagementACL {
+   description: "Allows the participant to manage flight schedules"
+   participant(m): "org.acme.airline.participant.ACMEPersonnel"
+   operation: ALL
+   resource(f): "org.acme.airline.flight.Flight"
+   transaction(tx): "org.acme.airline.flight.CreateFlight"
+   condition: (m.department == "scheduling")
+   action: ALLOW
+}

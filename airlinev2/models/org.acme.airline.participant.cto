@@ -8,7 +8,14 @@ abstract participant ACMEParticipant identified by participantKey {
   o Contact         contact
 }
 
-participant ACMEPersonal extends ACMEParticipant {
+/**
+ * Think of this role as the network administrator
+ */
+participant ACMENetworkAdmin extends ACMEParticipant {
+
+}
+
+participant ACMEPersonnel extends ACMEParticipant {
   o String  department
 }
 

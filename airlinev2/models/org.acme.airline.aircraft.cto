@@ -27,7 +27,10 @@ enum Ownership {
   "aircraftType": "Boeing A320",
   "ownership": "OWNED",
   "seatCount": 150,
-  "crewSeatCount": 5
+  "crewSeatCount": 5,
+  "firstClassSeats": 10,
+  "businessClassSeats": 20,
+  "economyClassSeats": 120
 }
 
 
